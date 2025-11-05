@@ -1,24 +1,29 @@
 # QR-code_Generator
  The repository contains backend + frontend to generate a QR-code for specific IDs
 
-## nProjektoversigt
-Dette projekt er udviklet som en del af min **afsluttende Hovedopgave** på Datamatiker-uddannelsen.  
-Målet er at designe og implementere et **demonstrationsmodul** til CERoS-platformen, der gør det muligt at:
+## Project Overview
+This project is developed as part of my **final exam project** in the Computer Science (Datamatiker) program.  
+The goal is to design and implement a **demonstration module** for the CERoS platform, enabling:
 
-- Generere QR-koder for laboratorieprøver
-- Udskrive QR-labels og sætte dem fysisk på prøver
-- Scanne QR-koder via arbejdsmobil
-- Automatisk hente tilhørende prøvedata og status
+- Generation of QR codes for laboratory samples
+- Printing QR labels for physical attachment to samples
+- Scanning of QR codes via a work mobile device
+- Automatic retrieval of related sample data and status information
 
-Modulet består af både **backend** og **frontend**
+The module consists of both **backend** and **frontend** components.
 
 
-##  Teknologier *(udfyldes når endeligt valgt)*
+## Technologies *(to be updated when finalized)*
 
-## Backend 
+### Backend
 * Python
-## Frontend
+
+### Frontend
 * Streamlit
-## Database
+
+### Database
 * MySQL
+
+### DevOps
+* _TBD_
 ## DevOps
