@@ -22,7 +22,7 @@ The module consists of both **backend** and **frontend** components.
 * Streamlit
 
 ### Database
-* MySQL
+* PostgresSQL
 
 ### DevOps
 * _TBD_
