@@ -1,0 +1,66 @@
+/* ---------- Global ---------- */
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* Wrapper */
+.main-container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* CERoS logo */
+.ceros-logo {
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #204A87;
+    text-shadow: 1px 1px 0 #ffffff, 2px 2px 0 #204A87;
+}
+
+/* Intro box */
+.intro-box {
+    background-color: #2965C4;
+    color: #ffffff;
+    padding: 24px 40px;
+    border-radius: 4px;
+    margin-top: 16px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Batch row */
+.batch-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+/* Batch "pill" */
+.batch-pill {
+    flex: 1;
+    background-color: #2965C4;
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Streamlit buttons override */
+.stButton > button {
+    background-color: #2965C4;
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 10px 24px;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.stButton > button:hover {
+    background-color: #1f4fa0;
+}
