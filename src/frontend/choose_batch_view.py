@@ -59,6 +59,9 @@ if "selected_batch" in st.session_state:
         f"Selected batch: {st.session_state['selected_batch']} "
         f"— ready to generate QR-code."
     )
+else:
+      st.warning("The batch does not excist, try again" )
+      st.rerun()
 
 st.markdown("</div>", unsafe_allow_html=True)
       
