@@ -113,3 +113,10 @@ body {
     font-size: 40px;
     color: #2965C4;
 }
+.qr-label {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #204A87;
+    margin-top: 10px;
+}

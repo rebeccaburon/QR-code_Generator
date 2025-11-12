@@ -1,0 +1,69 @@
+import streamlit as st
+from pathlib import Path
+
+
+st.set_page_config(
+        page_title = "qr-code_is_generated",
+        layout="wide",
+    )
+
+ #  -------------- Load CSS -------------
+def get_css_file(file_name):
+        with open (file_name) as file:
+            st.markdown (f"<style> {file.read()}</style>", unsafe_allow_html=True)
+
+file_path = Path(__file__).parent / "styles.css"
+
+get_css_file(file_path)
+
+#------ The selected batch - for now  ------------------
+selected_batch = st.session_state.get("selected_batch", "QB-20130903-0037")
+
+
+#----------- page content
+st.markdown('<div class="main-container">', unsafe_allow_html=True)
+
+st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
+
+if selected_batch:
+      col1, col2 = st.columns([2, 1])
+      
+      with col1:
+           
+           st.markdown(f"""
+        <div class="status-box">
+            <div class="status-title">
+                How to scan the QR-Code and keep track on the Analysis’s
+            </div>
+            <div class="status-text">
+                Contrary to popular belief, Lorem Ipsum is not simply random text.
+                It has roots in a piece of classical Latin literature from 45 BC,
+                making it over 2000 years old. Richard McClintock, a Latin professor
+                at Hampden-Sydney College in Virginia, looked up one of the more obscure
+                Latin words, consectetur, from a Lorem Ipsum passage, and going through
+                the cites of the word in classical literature, discovered the undoubtable
+                source.<br/><br/>
+                Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of “de Finibus Bonorum
+                et Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+                This book is a treatise on the theory of ethics, very popular during the
+                Renaissance.
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+      
+      with col2: # Her skal det ikke være et image, men QR kode der bliver generet
+           st.image("../images/qr-code.png", use_container_width=True)
+           st.markdown(f" <div class= qr-label> QB-20130903-0037 </div>", unsafe_allow_html=True)
+else:
+  st.warning("No batch selected yet.")
+
+st.markdown("</div>", unsafe_allow_html=True)
+
+
+
+
+
+
+
+
+
