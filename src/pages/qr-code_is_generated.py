@@ -1,5 +1,6 @@
 import streamlit as st
 from pathlib import Path
+from utils.style import load_css
 
 
 st.set_page_config(
@@ -8,13 +9,11 @@ st.set_page_config(
     )
 
  #  -------------- Load CSS -------------
-def get_css_file(file_name):
-        with open (file_name) as file:
-            st.markdown (f"<style> {file.read()}</style>", unsafe_allow_html=True)
+load_css()
 
-file_path = Path(__file__).parent / "styles.css"
+#------------- image path
+IMG_PATH = Path(__file__).resolve().parents[1] / "assets" / "images" / "qr-code.png"
 
-get_css_file(file_path)
 
 #------ The selected batch - for now  ------------------
 selected_batch = st.session_state.get("selected_batch", "QB-20130903-0037")
@@ -52,10 +51,16 @@ if selected_batch:
     """, unsafe_allow_html=True)
       
       with col2: # Her skal det ikke være et image, men QR kode der bliver generet
-           st.image("../images/qr-code.png", use_container_width=True)
-           st.markdown(f" <div class= qr-label> QB-20130903-0037 </div>", unsafe_allow_html=True)
+           st.image(str(IMG_PATH), use_container_width=True)
+           st.markdown(f" <div class= qr-label> {selected_batch} </div>", unsafe_allow_html=True)
 else:
   st.warning("No batch selected yet.")
+
+if st.button("Print QR-code", key=f"exit-btn"):
+    selected_batch
+    st.switch_page("pages/printing_instructions_page.py")
+
+
 
 st.markdown("</div>", unsafe_allow_html=True)
 

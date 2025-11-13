@@ -1,5 +1,6 @@
 import streamlit as st
 from pathlib import Path
+from utils.style import load_css
 
 
 st.set_page_config(
@@ -8,13 +9,7 @@ st.set_page_config(
     )
 
  #  -------------- Load CSS -------------
-def get_css_file(file_name):
-        with open (file_name) as file:
-            st.markdown (f"<style> {file.read()}</style>", unsafe_allow_html=True)
-
-file_path = Path(__file__).parent / "styles.css"
-
-get_css_file(file_path)
+load_css()
 
 
 #--- The selected batch - for now  ------------------

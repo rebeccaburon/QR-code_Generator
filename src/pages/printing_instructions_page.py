@@ -1,5 +1,6 @@
 import streamlit as st
 from pathlib import Path
+from utils.style import load_css
 
 
 st.set_page_config(
@@ -8,13 +9,7 @@ st.set_page_config(
     )
 
  #  -------------- Load CSS -------------
-def get_css_file(file_name):
-        with open (file_name) as file:
-            st.markdown (f"<style> {file.read()}</style>", unsafe_allow_html=True)
-
-file_path = Path(__file__).parent / "styles.css"
-
-get_css_file(file_path)
+load_css()
 
 #------ The selected batch - for now  ------------------
 selected_batch = st.session_state.get("selected_batch", "QB-20130903-0037")
@@ -47,6 +42,10 @@ if selected_batch:
 else:
     st.warning("No batch selected yet.")
 
+st.markdown('<div class="exit-row">', unsafe_allow_html=True)
+if st.button("Show Scanning Instructions", key=f"exit-btn"):
+    selected_batch
+    st.switch_page("pages/scanning_instructions_page.py")
 
 
 

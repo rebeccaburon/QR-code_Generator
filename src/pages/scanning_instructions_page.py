@@ -1,5 +1,6 @@
 import streamlit as st
 from pathlib import Path
+from utils.style import load_css
 
 
 st.set_page_config(
@@ -8,13 +9,12 @@ st.set_page_config(
     )
 
  #  -------------- Load CSS -------------
-def get_css_file(file_name):
-        with open (file_name) as file:
-            st.markdown (f"<style> {file.read()}</style>", unsafe_allow_html=True)
+load_css()
 
-file_path = Path(__file__).parent / "styles.css"
 
-get_css_file(file_path)
+#------------- image path
+IMG_PATH = Path(__file__).resolve().parents[1] / "assets" / "images" / "scan_qr_instructions.jpg"
+
 
 #------ The selected batch - for now  ------------------
 selected_batch = st.session_state.get("selected_batch", "QB-20130903-0037")
@@ -52,10 +52,14 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-     st.image("../images/scan_qr_instructions.jpg", use_container_width=True)
+     st.image(str(IMG_PATH), use_container_width=True)
 
 st.markdown("</div>", unsafe_allow_html=True)
-      
+
+
+if st.button("Show QR-code"):
+    selected_batch
+    st.switch_page("pages/show_qr-code_page.py")
 
 
 

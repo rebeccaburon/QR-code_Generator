@@ -1,19 +1,14 @@
 import streamlit as st
 from pathlib import Path
+from utils.style import load_css
 
 
 st.set_page_config(
         page_title = "Select Batch",
         layout="wide",
     )
-    #  -------------- Load CSS -------------
-def get_css_file(file_name):
-        with open (file_name) as file:
-            st.markdown (f"<style> {file.read()}</style>", unsafe_allow_html=True)
-
-file_path = Path(__file__).parent / "styles.css"
-
-get_css_file(file_path)
+#  -------------- Load CSS -------------
+load_css()
 
     # -------- Page content ------------------
 
@@ -54,15 +49,9 @@ for i, batch_id in enumerate(batch_ids):
                   st.session_state["selected_batch"] = batch_id
                   st.session_state["qr_status"] = "Pending"
                   st.switch_page("pages/waiting_page.py")
-
-if "selected_batch" in st.session_state:
-    st.success( #Når knappet trykkes på, skal den føre over til en anden side
-        f"Selected batch: {st.session_state['selected_batch']} "
-        f"— ready to generate QR-code."
-    )
-else:
-      st.warning("The batch does not excist, try again" )
-      st.rerun()
+                  if "selected_batch" not in st.session_state:
+                       st.warning("The batch does not excist, try again" )
+                       st.rerun()
 
 st.markdown("</div>", unsafe_allow_html=True)
       

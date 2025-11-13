@@ -1,14 +1,11 @@
 import streamlit as st
 from pathlib import Path
 from datetime import datetime
+from utils.style import load_css
 
 st.set_page_config(page_title="QC-Batch overview", layout="wide")
 
 # ---------- Load shared CSS ----------
-def load_css():
-    css_path = Path(__file__).parent / "styles.css"
-    with open(css_path) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 load_css()
 
@@ -84,10 +81,11 @@ with right:
         """, unsafe_allow_html=True)
 
     # Exit-knap centreret
-    st.markdown("""
-    <div class="exit-row">
-        <button class="exit-btn" onclick="">Exit</button>
-    </div>
-    """, unsafe_allow_html=True)
+st.markdown("""<div class="exit-row","exit-btn" ></div>""", unsafe_allow_html=True)
+if st.button("Exit"):
+    st.switch_page("pages/choose_batch_view.py")
+
+
+
 
 st.markdown("</div>", unsafe_allow_html=True)
