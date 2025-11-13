@@ -53,6 +53,7 @@ for i, batch_id in enumerate(batch_ids):
             if st.button("Generate QR-Code", key=f"btn_{i}"):
                   st.session_state["selected_batch"] = batch_id
                   st.session_state["qr_status"] = "Pending"
+                  st.switch_page("pages/waiting_page.py")
 
 if "selected_batch" in st.session_state:
     st.success( #Når knappet trykkes på, skal den føre over til en anden side
