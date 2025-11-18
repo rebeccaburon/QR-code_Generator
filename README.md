@@ -5,25 +5,33 @@
 This project is developed as part of my **final exam project** in the Computer Science (Datamatiker) program.  
 The goal is to design and implement a **demonstration module** for the CERoS platform, enabling:
 
-- Generation of QR codes for laboratory samples
-- Printing QR labels for physical attachment to samples
-- Scanning of QR codes via a work mobile device
+The module makes it possible to:
+
+
+-  Generate QR codes for selected QC-batches  
+- Automatically encode URLs with batch-specific parameters
+- Display the generated QR-code inside the application  
+
+- Scanning of QR codes using mobile device
+
 - Automatic retrieval of related sample data and status information
 
 The module consists of both **backend** and **frontend** components.
 
 
-## Technologies *(to be updated when finalized)*
+## Technologies *(To be updated when finalized)*
 
 ### Backend
-* Python
+- **Python 3.11+**
+- **qrcode** 
+- **Pillow**
+- **Custom utility modules** 
+
+
 
 ### Frontend
-* Streamlit
+- **Streamlit**
+- **Responsive HTML + CSS**
 
 ### Database
-* PostgresSQL
-
-### DevOps
-* _TBD_
-## DevOps
+- **PostgreSQL**
