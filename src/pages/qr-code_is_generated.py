@@ -11,20 +11,16 @@ st.set_page_config(
  #  -------------- Load CSS -------------
 load_css()
 
-#------------- image path
-IMG_PATH = Path(__file__).resolve().parents[1] / "assets" / "images" / "qr-code.png"
+batch_id = st.session_state.get("selected_batch", "Unknown batch")
 
-
-#------ The selected batch - for now  ------------------
-selected_batch = st.session_state.get("selected_batch", "QB-20130903-0037")
-
+qr_path = st.session_state.get("qr_image_path")
 
 #----------- page content
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
 st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
 
-if selected_batch:
+if batch_id:
       col1, col2 = st.columns([2, 1])
       
       with col1:
@@ -51,13 +47,13 @@ if selected_batch:
     """, unsafe_allow_html=True)
       
       with col2: # Her skal det ikke være et image, men QR kode der bliver generet
-           st.image(str(IMG_PATH), use_container_width=True)
-           st.markdown(f" <div class= qr-label> {selected_batch} </div>", unsafe_allow_html=True)
+           st.image(str(qr_path), use_container_width=True)
+           st.markdown(f" <div class= qr-label> {batch_id} </div>", unsafe_allow_html=True)
 else:
   st.warning("No batch selected yet.")
 
 if st.button("Print QR-code", key=f"exit-btn"):
-    selected_batch
+    batch_id
     st.switch_page("pages/printing_instructions_page.py")
 
 

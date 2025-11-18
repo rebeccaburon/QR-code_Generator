@@ -1,6 +1,8 @@
 import streamlit as st
 from pathlib import Path
 from utils.style import load_css
+from backend.qr_generator import generate_qr_for_batch
+
 
 
 st.set_page_config(
@@ -47,11 +49,12 @@ for i, batch_id in enumerate(batch_ids):
       with col_btn:
             if st.button("Generate QR-Code", key=f"btn_{i}"):
                   st.session_state["selected_batch"] = batch_id
+                  qr_path = generate_qr_for_batch(batch_id)
+                  st.session_state["qr_image_path"] = str(qr_path)
                   st.session_state["qr_status"] = "Pending"
+
+
                   st.switch_page("pages/waiting_page.py")
-                  if "selected_batch" not in st.session_state:
-                       st.warning("The batch does not excist, try again" )
-                       st.rerun()
 
 st.markdown("</div>", unsafe_allow_html=True)
       

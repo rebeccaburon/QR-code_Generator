@@ -11,14 +11,19 @@ st.set_page_config(
  #  -------------- Load CSS -------------
 load_css()
 
-IMG_PATH = Path(__file__).resolve().parents[1] / "assets" / "images" / "qr-code.png"
 
-#--- The selected batch - for now  ------------------
-selected_batch = st.session_state.get("selected_batch", "QB-20130903-0037")
+batch_id = st.session_state.get("selected_batch", "Unknown batch")
+
+qr_path = st.session_state.get("qr_image_path")
 
 # ------- Page content -----------------------------
-st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
-st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
+if qr_path and batch_id:
+    st.markdown('<div class="main-container">', unsafe_allow_html=True)
+    st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
+    st.image(qr_path, batch_id)
 
-st.image(IMG_PATH, selected_batch)
+else:
+    st.warning("There is no QR-code or batch id. Go to page: **Chose Batch** ")
+    if st.button("Chose a batch", key=f"exit-btn"):
+        st.switch_page("pages/choose_batch_view.py")
