@@ -12,6 +12,7 @@ st.set_page_config(
 load_css()
 
 
+batch_id = st.session_state.get("selected_batch", "Unknown batch") 
 # --- Auto-redirect after 30 seconds ---
 TOTAL_WAIT_SEC = 15
 
@@ -20,18 +21,19 @@ if "wait_start_time" not in st.session_state:
     st.session_state.wait_start_time = time.time()
 
 count_down_timer = int(time.time() - st.session_state.wait_start_time)
+
 remaining = TOTAL_WAIT_SEC - count_down_timer
 
-
-if remaining <= 0:
-    st.switch_page("pages/qr-code_is_generated.py")
-    st.stop()
-else:
-    st.markdown('<div class="main-container">', unsafe_allow_html=True)
-    batch_id = st.session_state.get("selected_batch", "Unknown batch")
+if batch_id:
+    if remaining <= 0:
+        st.switch_page("pages/qr-code_is_generated.py")
+        st.stop()
+    else:
+        st.markdown('<div class="main-container">', unsafe_allow_html=True)
+        batch_id
     
-    st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
-    st.markdown(f"""
+        st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
+        st.markdown(f"""
                 <div class="status-box">
                 <div class="status-title">Generating&hellip;&hellip;&hellip;&hellip;</div>
                 <div class="status-subtitle"> Information about batch: {batch_id}</div>
@@ -41,18 +43,22 @@ else:
                 normal distribution of letters, as opposed to using
                 'Content here, content here', making it look like readable English.
                 <div class="status-subtitle"> Qr-Code is generetaed in: <b>{remaining}</b> sec. </div>
+        </div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-st.markdown("""
-<div class="hourglass-wrapper">
-    <div class="hourglass-circle">
+    st.markdown("""
+    <div class="hourglass-wrapper">
+     <div class="hourglass-circle">
         ⏳
     </div>
-</div>
-""", unsafe_allow_html=True)
-# So the count_down works on the page
-time.sleep(1)
-st.rerun()
+    </div>
+    """, unsafe_allow_html=True)
+    # So the count_down works on the page
+    time.sleep(1)
+    st.rerun()
+else:
+    st.warning("No batch selected yet.")
+    if st.button("Go select QC-batch", key="exit-btn"):
+        st.switch_page("pages/choose_batch_view.py")
 

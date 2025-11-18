@@ -12,7 +12,7 @@ st.set_page_config(
 load_css()
 
 #------ The selected batch - for now  ------------------
-selected_batch = st.session_state.get("selected_batch", "QB-20130903-0037")
+batch_id = st.session_state.get("selected_batch")
 
 
 #----------- page content
@@ -20,10 +20,10 @@ st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
 st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
 
-if selected_batch:
+if batch_id:
       st.markdown(f"""
     <div class="status-box">
-  <div class="status-title">The QR-Code is printed for batch id: <br> {selected_batch}</div>
+  <div class="status-title">The QR-Code is printed for batch id: <br> {batch_id}</div>
   <div class="status-subtitle">Instructions for labeling</div>
 
   <div class="status-text">
@@ -38,14 +38,18 @@ if selected_batch:
   </div>
 </div>
 """, unsafe_allow_html=True)
+if batch_id and st.button("Show Scanning Instructions", key=f"exit-btn"):
+    batch_id
+    st.switch_page("pages/scanning_instructions_page.py")
       
 else:
     st.warning("No batch selected yet.")
+    if st.button("Go select QC-batch "):
+        st.switch_page("pages/scanning_instructions_page.py")
+    
 
 st.markdown('<div class="exit-row">', unsafe_allow_html=True)
-if st.button("Show Scanning Instructions", key=f"exit-btn"):
-    selected_batch
-    st.switch_page("pages/scanning_instructions_page.py")
+
 
 
 

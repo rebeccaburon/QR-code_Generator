@@ -20,41 +20,39 @@ st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
 st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
 
-if batch_id:
-      col1, col2 = st.columns([2, 1])
-      
-      with col1:
-           
-           st.markdown(f"""
+if batch_id and qr_path:
+    col1, col2 = st.columns([2, 1])
+    
+    with col1:
+        st.markdown(f"""
         <div class="status-box">
             <div class="status-title">
                 How to scan the QR-Code and keep track on the Analysis’s
             </div>
             <div class="status-text">
-                Contrary to popular belief, Lorem Ipsum is not simply random text.
-                It has roots in a piece of classical Latin literature from 45 BC,
-                making it over 2000 years old. Richard McClintock, a Latin professor
-                at Hampden-Sydney College in Virginia, looked up one of the more obscure
-                Latin words, consectetur, from a Lorem Ipsum passage, and going through
-                the cites of the word in classical literature, discovered the undoubtable
-                source.<br/><br/>
-                Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of “de Finibus Bonorum
-                et Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC.
-                This book is a treatise on the theory of ethics, very popular during the
-                Renaissance.
+                This a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using
+                'Content here, content here', making it look like readable English
             </div>
         </div>
-    """, unsafe_allow_html=True)
-      
-      with col2: # Her skal det ikke være et image, men QR kode der bliver generet
-           st.image(str(qr_path), use_container_width=True)
-           st.markdown(f" <div class= qr-label> {batch_id} </div>", unsafe_allow_html=True)
-else:
-  st.warning("No batch selected yet.")
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.image(str(qr_path), use_container_width=True)
+        st.markdown(f"<div class='qr-label'>{batch_id}</div>", unsafe_allow_html=True)
 
-if st.button("Print QR-code", key=f"exit-btn"):
-    batch_id
-    st.switch_page("pages/printing_instructions_page.py")
+    # ✔ Correct indentation (still inside first IF)
+    if st.button("Print QR-code"):
+        st.switch_page("pages/printing_instructions_page.py")
+
+else:
+    st.warning("No batch selected yet.")
+    if st.button("Go select QC-batch", key="exit-btn"):
+        st.switch_page("pages/choose_batch_view.py")
+
+
 
 
 
