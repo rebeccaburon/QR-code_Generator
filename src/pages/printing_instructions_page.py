@@ -45,7 +45,7 @@ if batch_id and st.button("Show Scanning Instructions", key=f"exit-btn"):
 else:
     st.warning("No batch selected yet.")
     if st.button("Go select QC-batch "):
-        st.switch_page("pages/scanning_instructions_page.py")
+        st.switch_page("pages/choose_batch_view.py")
     
 
 st.markdown('<div class="exit-row">', unsafe_allow_html=True)
