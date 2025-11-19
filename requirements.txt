@@ -4,3 +4,5 @@ numpy
 qrcode
 pillow
 time
+python-dotenv
+psycopg2-binary

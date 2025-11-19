@@ -2,7 +2,7 @@ import streamlit as st
 from pathlib import Path
 from utils.style import load_css
 from backend.qr_generator import generate_qr_for_batch
-
+from backend.db_connection import get_all_qcbatches
 
 
 st.set_page_config(
@@ -30,12 +30,7 @@ st.markdown(
 )
 
 # Demo-batches (Skal hentes fra database)
-batch_ids = [
-    "QB-20101311-0098",
-    "QB-20110312-0023",
-    "QB-20130903-0037",
-    "QB-20231507-0061",
-]
+batch_ids = get_all_qcbatches()
 
 for i, batch_id in enumerate(batch_ids):
       col_batch, col_btn = st.columns([4,1.5])
