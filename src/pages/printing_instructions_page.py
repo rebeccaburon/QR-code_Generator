@@ -38,7 +38,8 @@ if batch_id:
   </div>
 </div>
 """, unsafe_allow_html=True)
-if batch_id and st.button("Show Scanning Instructions", key=f"exit-btn"):
+if batch_id:
+  if st.button("Show Scanning Instructions", key=f"exit-btn"):
     batch_id
     st.switch_page("pages/scanning_instructions_page.py")
       

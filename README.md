@@ -1,7 +1,7 @@
 # QR-code_Generator
  The repository contains backend + frontend to generate a QR-code for specific IDs
 
-## Project Overview
+# Project Overview
 This project is developed as part of my **final exam project** in the Computer Science (Datamatiker) program.  
 The goal is to design and implement a **demonstration module** for the CERoS platform, enabling:
 
@@ -19,9 +19,9 @@ The module makes it possible to:
 The module consists of both **backend** and **frontend** components.
 
 
-## Technologies *(To be updated when finalized)*
+# Technologies *(To be updated when finalized)*
 
-### Backend
+## Backend
 - **Python 3.11+**
 - **qrcode** 
 - **Pillow**
@@ -29,9 +29,12 @@ The module consists of both **backend** and **frontend** components.
 
 
 
-### Frontend
+## Frontend
 - **Streamlit**
 - **Responsive HTML + CSS**
 
-### Database
+## Database
 - **PostgreSQL**
+### Connection handled
+- **psycopg2-binary** 
+- **python-dotenv**

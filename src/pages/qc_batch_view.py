@@ -10,7 +10,7 @@ st.set_page_config(page_title="QC-Batch overview", layout="wide")
 load_css()
 
 # ---------- Demo data ----------
-batch_id = st.session_state.get("selected_batch", "QB - 20251110 - 00348")
+batch_id = st.session_state.get("selected_batch", "Unknown batch")
 created_dt = datetime.now().strftime("%d.%m.%y %H:%M:%S")
 started_dt = datetime.now().strftime("%d.%m.%y %H:%M:%S")
 
