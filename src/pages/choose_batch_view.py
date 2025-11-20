@@ -7,7 +7,7 @@ from backend.db_connection import get_all_qcbatches
 
 st.set_page_config(
         page_title = "Select Batch",
-        layout="wide",
+        layout="wide"
     )
 #  -------------- Load CSS -------------
 load_css()
