@@ -13,15 +13,12 @@ st.set_page_config(
 
 load_css()
 # 1. Try to read from URL: ?batch_id=..
-params = st.experimental_get_query_params()
-batch_id_from_url = params.get("batch_id", [None])[0]
+batch_id_from_url = st.query_params.get("batch_id", None)
 
-if batch_id_from_url:
-    batch_id = batch_id_from_url
+if batch_id_from_url is not None:
+    batch_id = batch_id_from_url          # comes from ?batch_id=...
 else:
-    # 2. Fallback to session_state (for normal navigation inside the app)
-    batch_id = st.session_state.get("selected_batch","Unknown batch" )
-
+    batch_id = st.session_state.get("selected_batch", "Unknown batch")
 
 if batch_id == "Unknown batch":
     st.error("No batch selected yet.")
