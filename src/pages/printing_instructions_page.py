@@ -11,11 +11,14 @@ st.set_page_config(
  #  -------------- Load CSS -------------
 load_css()
 
-#------ The selected batch - for now  ------------------
+
+
+
+
+# ----------- Page content -----------------------------
+
 batch_id = st.session_state.get("selected_batch")
 
-
-#----------- page content
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
 st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)

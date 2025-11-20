@@ -12,11 +12,12 @@ st.set_page_config(
 # ---------- Load shared CSS ----------
 
 load_css()
-# 1. Try to read from URL: ?batch_id=..
+
+#  Read from URL
 batch_id_from_url = st.query_params.get("batch_id", None)
 
 if batch_id_from_url is not None:
-    batch_id = batch_id_from_url          # comes from ?batch_id=...
+    batch_id = batch_id_from_url        
 else:
     batch_id = st.session_state.get("selected_batch", "Unknown batch")
 
@@ -54,7 +55,8 @@ analysis_stopped = info.get("analysis_stopped")
 
 started_label = analysis_started or "Unknown"
 stopped_label = analysis_stopped or "Unknown"
-# ---------Layout ----------
+
+# ----------- Page content -----------------------------
 
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
@@ -131,7 +133,7 @@ with right:
             )
 
 
-    # Exit-knap centreret
+
 st.markdown("""<div class="exit-row","exit-btn" ></div>""", unsafe_allow_html=True)
 if st.button("Exit"):
     st.switch_page("pages/choose_batch_view.py")

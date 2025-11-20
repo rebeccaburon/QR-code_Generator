@@ -15,7 +15,8 @@ batch_id = st.session_state.get("selected_batch", "Unknown batch")
 
 qr_path = st.session_state.get("qr_image_path")
 
-#----------- page content
+# ----------- Page content -----------------------------
+
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
 st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
@@ -43,7 +44,7 @@ if batch_id and qr_path:
         st.image(str(qr_path), use_container_width=True)
         st.markdown(f"<div class='qr-label'>{batch_id}</div>", unsafe_allow_html=True)
 
-    # ✔ Correct indentation (still inside first IF)
+
     if st.button("Print QR-code"):
         st.switch_page("pages/printing_instructions_page.py")
 

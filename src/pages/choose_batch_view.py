@@ -12,7 +12,7 @@ st.set_page_config(
 #  -------------- Load CSS -------------
 load_css()
 
-    # -------- Page content ------------------
+# ----------- Page content -----------------------------
 
 st.markdown('<div class= "main-container">', unsafe_allow_html= True)
 
@@ -29,7 +29,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Demo-batches (Skal hentes fra database)
+
 batch_ids = get_all_qcbatches()
 
 for i, batch_id in enumerate(batch_ids):

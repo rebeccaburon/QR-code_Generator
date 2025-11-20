@@ -6,6 +6,9 @@ from psycopg2.extras import RealDictCursor
  # Load .env file
 load_dotenv()
 
+
+# Get DB-Connection
+
 def get_connection():
     conn = psycopg2.connect(
         host=os.getenv("DB_HOST"),
@@ -16,6 +19,9 @@ def get_connection():
     )
     return conn
 
+
+# ------------- Fetch Data-------------
+
 def get_all_qcbatches():
   
     conn = get_connection()
@@ -23,7 +29,7 @@ def get_all_qcbatches():
         with conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute("SELECT qcbatch_id FROM qcbatch ORDER BY qcbatch_id;")
             rows = cur.fetchall()
-            return [row["qcbatch_id"] for row in rows] # Frontend recives clean value
+            return [row["qcbatch_id"] for row in rows]
     finally:
         conn.close()
 
@@ -38,8 +44,6 @@ def get_create_dt_and_by(qcbatch: str):
             return row
     finally:
         conn.close()
-
-
 
 
 def get_analyses_for_batch(qcbatch: str):

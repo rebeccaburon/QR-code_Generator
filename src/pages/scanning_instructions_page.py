@@ -16,11 +16,11 @@ load_css()
 IMG_PATH = Path(__file__).resolve().parents[1] / "assets" / "images" / "scan_qr_instructions.jpg"
 
 
-#------ The selected batch - for now  ------------------
-selected_batch = st.session_state.get("selected_batch", "QB-20130903-0037")
+selected_batch = st.session_state.get("selected_batch")
 
 
-#----------- page content
+# ----------- Page content -----------------------------
+
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
 st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)

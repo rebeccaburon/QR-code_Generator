@@ -16,7 +16,7 @@ batch_id = st.session_state.get("selected_batch", "Unknown batch")
 
 qr_path = st.session_state.get("qr_image_path")
 
-# ------- Page content -----------------------------
+# ----------- Page content -----------------------------
 
 if qr_path and batch_id:
     st.markdown('<div class="main-container">', unsafe_allow_html=True)

@@ -13,7 +13,8 @@ load_css()
 
 
 batch_id = st.session_state.get("selected_batch", "Unknown batch") 
-# --- Auto-redirect after 30 seconds ---
+
+
 TOTAL_WAIT_SEC = 15
 
 # Save the start time in session_state 
@@ -24,6 +25,7 @@ count_down_timer = int(time.time() - st.session_state.wait_start_time)
 
 remaining = TOTAL_WAIT_SEC - count_down_timer
 
+# ----------- Page content -----------------------------
 if batch_id:
     if remaining <= 0:
         st.switch_page("pages/qr-code_is_generated.py")
@@ -54,7 +56,7 @@ if batch_id:
     </div>
     </div>
     """, unsafe_allow_html=True)
-    # So the count_down works on the page
+    
     time.sleep(1)
     st.rerun()
 else:
