@@ -30,7 +30,7 @@ if batch_id:
         st.stop()
     else:
         st.markdown('<div class="main-container">', unsafe_allow_html=True)
-        batch_id
+        
     
         st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
         st.markdown(f"""

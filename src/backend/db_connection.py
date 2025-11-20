@@ -28,16 +28,18 @@ def get_all_qcbatches():
         conn.close()
 
 
-def get_create_dt(qcbatch: str):
+def get_create_dt_and_by(qcbatch: str):
   
     conn = get_connection()
     try:
         with conn.cursor(cursor_factory=RealDictCursor) as cur:
-            cur.execute("SELECT create_dt FROM qcbatch WHERE qcbatch_id = %s;", (qcbatch,))
+            cur.execute("SELECT create_dt, create_by FROM qcbatch WHERE qcbatch_id = %s;", (qcbatch,))
             row = cur.fetchone()
-            return row["create_dt"] if row else None
+            return row
     finally:
         conn.close()
+
+
 
 
 def get_analyses_for_batch(qcbatch: str):
@@ -56,5 +58,28 @@ def get_analyses_for_batch(qcbatch: str):
                 (qcbatch,),
             )
             return cur.fetchall()
+    finally:
+        conn.close()
+
+
+def get_qcbatch_info(qcbatch_id_str: str):
+  
+    conn = get_connection()
+    try:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
+            cur.execute(
+                """
+                SELECT 
+                    qi.analysis_started,
+                    qi.analysis_stopped,
+                    qi.ready_for_review,
+                    qi.completed
+                FROM qcbatch_info qi
+                JOIN qcbatch q ON qi.qcbatch_id = q.id
+                WHERE q.qcbatch_id = %s;
+                """,
+                (qcbatch_id_str,),
+            )
+            return cur.fetchone()  
     finally:
         conn.close()
