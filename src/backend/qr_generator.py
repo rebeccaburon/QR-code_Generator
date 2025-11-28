@@ -3,12 +3,15 @@ from pathlib import Path
 
 
 
-BASE_APP_URL = ("http://localhost:8501")
+BASE_APP_URL = "http://localhost:8501"
 
 
-# Build QR-Code
+def build_qr_url(batch_id: str) -> str:
+    return f"{BASE_APP_URL}/qc_batch_view?batch_id={batch_id}" # Query parameter
+
+
 def generate_qr_for_batch(batch_id: str) -> Path:
-    qr_url = f"{BASE_APP_URL}/qc_batch_view?batch_id={batch_id}" # Query parameter
+    qr_url = build_qr_url(batch_id)
 
     #Save the image
     output_dir = Path("src") / "assets" / "qr_images"
