@@ -30,14 +30,17 @@ if batch_id:
   <div class="status-subtitle">Instructions for labeling</div>
 
   <div class="status-text">
-    This is a long established fact that a reader will be distracted by the readable
-    content of a page when looking at its layout. The point of using Lorem Ipsum is that
-    it has a more-or-less normal distribution of letters, as opposed to using
-    ‘Content here, content here’, making it look like readable English.<br/><br/>
-    There are many variations of passages of Lorem Ipsum available, but the majority have
-    suffered alteration. The standard chunk of Lorem Ipsum used since the 1500s is
-    reproduced below for those interested.
-            
+    When attaching the QR-label to a refrigerated batch, it is important to ensure that the sticker is placed on a clean and dry surface. 
+    This prevents condensation from interfering with the scanner and helps maintain readability throughout storage. 
+    The purpose of these guidelines is to support a consistent labeling workflow that aligns with standard handling procedures in the laboratory.
+    <div><br></br></div>
+    <div> <strong>Place the label:</strong></div>
+    Place the label on the upper right part of the container, ensuring it is not covering any critical text (e.g., batch name, expiry date). 
+    The QR code must remain fully visible when the container is stored in its normal position on the shelf.
+    Peel off the QR label and position it carefully on the prepared area. 
+    Press from the center outward to avoid air bubbles or folds. 
+    Make sure all four corners are firmly attached so the label does not peel in cold conditions.
+    Use the work mobile to scan the QR code.
   </div>
 </div>
 """, unsafe_allow_html=True)

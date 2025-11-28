@@ -36,17 +36,12 @@ with col1:
                 How to scan the QR-Code and keep track on the Analysis’s
             </div>
             <div class="status-text">
-                Contrary to popular belief, Lorem Ipsum is not simply random text.
-                It has roots in a piece of classical Latin literature from 45 BC,
-                making it over 2000 years old. Richard McClintock, a Latin professor
-                at Hampden-Sydney College in Virginia, looked up one of the more obscure
-                Latin words, consectetur, from a Lorem Ipsum passage, and going through
-                the cites of the word in classical literature, discovered the undoubtable
-                source.<br/><br/>
-                Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of “de Finibus Bonorum
-                et Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC.
-                This book is a treatise on the theory of ethics, very popular during the
-                Renaissance.
+                To scan the QR code, unlock the work phone and open the camera. 
+                Hold the phone steady and position the camera so the entire QR code is visible within the guide frame on the screen. 
+                The scanner will automatically detect the code once it is in focus, and a confirmation message will appear when the batch is successfully registered. 
+                <div></div>
+                If the scan does not trigger, adjust the distance slightly or tilt the phone to avoid 
+                glare from the refrigerator lighting. After the scan is completed, the batch data should load automatically on the device
             </div>
         </div>
     """, unsafe_allow_html=True)

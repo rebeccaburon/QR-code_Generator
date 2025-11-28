@@ -1,27 +1,27 @@
-/* ---------- Global ---------- */
+
 body {
     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
     background: #f5f7fb;
     color: #1d2833;
 }
 
-/* Wrapper */
+
 .main-container {
     max-width: 980px;
     margin: 48px auto;
     padding: 0 24px;
 }
 
-/* CERoS logo */
+
 .ceros-logo {
     font-size: 46px;
     font-weight: 800;
     letter-spacing: 1px;
     color: #204A87;
-    text-shadow: none; /* cleaner + more professional */
+    text-shadow: none; 
 }
 
-/* Intro box */
+
 .intro-box {
     background: linear-gradient(135deg, #2965C4, #204A87);
     color: #ffffff;
@@ -35,14 +35,14 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
-/* Batch row */
+
 .batch-row {
     display: flex;
     align-items: center;
     margin-bottom: 16px;
 }
 
-/* Batch "pill" */
+
 .batch-pill {
     flex: 1;
     background-color: #ffffff;
@@ -55,7 +55,6 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
-/* Streamlit buttons override */
 .stButton > button {
     background-color: #204A87;
     color: #ffffff;
@@ -75,7 +74,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* Status / generating box */
+
 .status-box {
     background: linear-gradient(135deg, #2965C4, #204A87);
     color: #ffffff;
@@ -108,7 +107,7 @@ body {
     opacity: 0.95;
 }
 
-/* Hourglass icon */
+
 .hourglass-wrapper {
     display: flex;
     justify-content: center;
@@ -145,7 +144,7 @@ body {
     opacity: 0.85;
 }
 
-/* Venstre info-panel */
+
 .batch-sidepanel {
     background: #ffffff;
     color: #1d2833;
@@ -185,7 +184,7 @@ body {
     padding-top: 10px;
 }
 
-/* Højre liste – rækker */
+
 .analysis-row {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr;
@@ -207,7 +206,7 @@ body {
     font-size: 13px;
 }
 
-/* Status badges */
+
 .badge {
     display: inline-block;
     padding: 6px 14px;
@@ -228,7 +227,7 @@ body {
     color: #176344;
 }
 
-/* button knap centreret */
+
 .exit-row {
     display: flex;
     justify-content: center;

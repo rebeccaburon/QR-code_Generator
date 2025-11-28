@@ -38,12 +38,11 @@ if batch_id:
         st.markdown(f"""
                 <div class="status-box">
                 <div class="status-title">Generating&hellip;&hellip;&hellip;&hellip;</div>
-                <div class="status-subtitle"> Information about batch: {batch_id}</div>
-                <div class="status-text"> This a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using
-                'Content here, content here', making it look like readable English.
+                <div class="status-subtitle"> Batch: {batch_id}</div>
+                <div class="status-text"> Please wait while the system prepares the QR-code for this batch. 
+                The application is validating your input, creating the encoded link, and assembling the final image. 
+                This process normally takes a few seconds. 
+                Once completed, the QR-code will appear on screen and can be printed or saved for labeling
                 <div class="status-subtitle"> Qr-Code is generetaed in: <b>{remaining}</b> sec. </div>
         </div>
     </div>

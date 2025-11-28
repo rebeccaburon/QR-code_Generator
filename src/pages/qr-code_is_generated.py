@@ -28,14 +28,12 @@ if batch_id and qr_path:
         st.markdown(f"""
         <div class="status-box">
             <div class="status-title">
-                How to scan the QR-Code and keep track on the Analysis’s
+                The QR-Code is generated. <br>Read more about what the code contains
             </div>
             <div class="status-text">
-                This a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using
-                'Content here, content here', making it look like readable English
+                The QR code contains essential batch metadata used to identify and track the sample throughout the laboratory workflow. 
+                This includes the batch ID, creation date, assigned department, and a secure reference link that directs the system to the corresponding record in the internal database. 
+                    The encoded information ensures that staff can quickly access status updates, analysis details, and handling instructions directly from the work phone
             </div>
         </div>
         """, unsafe_allow_html=True)
