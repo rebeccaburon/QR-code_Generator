@@ -19,22 +19,24 @@ The module makes it possible to:
 The module consists of both **backend** and **frontend** components.
 
 
-# Technologies *(To be updated when finalized)*
+# Technologies
+
+## Frontend
+- **Streamlit 1.46.1**
+- **Responsive HTML + CSS**
 
 ## Backend
 - **Python 3.11+**
-- **qrcode** 
-- **Pillow**
+- **qrcode 8.2** 
+- **Pillow 11.3.0**
 - **Custom utility modules** 
 
 
+    
 
-## Frontend
-- **Streamlit**
-- **Responsive HTML + CSS**
 
 ## Database
 - **PostgreSQL**
 ### Connection handled
-- **psycopg2-binary** 
-- **python-dotenv**
+- **psycopg2-binary 2.9.11** 
+- **python-dotenv 1.2.1**
