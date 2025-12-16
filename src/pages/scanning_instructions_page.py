@@ -27,9 +27,9 @@ st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
 
 
 
-col1, col2 = st.columns([2, 1])
+left, right = st.columns([2, 1])
 
-with col1:
+with left:
     st.markdown(f"""
         <div class="status-box">
             <div class="status-title">
@@ -46,7 +46,7 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-with col2:
+with right:
      st.image(str(IMG_PATH), use_container_width=True)
 
 st.markdown("</div>", unsafe_allow_html=True)

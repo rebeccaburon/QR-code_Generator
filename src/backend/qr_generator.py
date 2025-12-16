@@ -30,5 +30,5 @@ def generate_qr_for_batch(batch_id: str) -> Path:
     img.save(file_path)
 
     print(f"QR-Code generated for {batch_id}: {file_path}")
-    #print(f"Scans to URL: {qr_url}") #Test output is correct.
+    print(f"Scans to URL: {qr_url}") #Test output is correct.
     return file_path

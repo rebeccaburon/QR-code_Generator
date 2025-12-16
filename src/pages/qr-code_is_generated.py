@@ -22,9 +22,9 @@ st.markdown('<div class="main-container">', unsafe_allow_html=True)
 st.markdown('<div class="ceros-logo"> CERoS</div>', unsafe_allow_html=True)
 
 if batch_id and qr_path:
-    col1, col2 = st.columns([2, 1])
+    left, right = st.columns([2, 1])
     
-    with col1:
+    with left:
         st.markdown(f"""
         <div class="status-box">
             <div class="status-title">
@@ -38,7 +38,7 @@ if batch_id and qr_path:
         </div>
         """, unsafe_allow_html=True)
     
-    with col2:
+    with right:
         st.image(str(qr_path), use_container_width=True)
         st.markdown(f"<div class='qr-label'>{batch_id}</div>", unsafe_allow_html=True)
 
