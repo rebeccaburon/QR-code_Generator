@@ -1,6 +1,6 @@
 from pathlib import Path
 import sys
-import psycopg2
+
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +16,7 @@ from src.backend.db_connection import (
 BATCH_ID = "QB-20101311-0098"
 
 
-def test_get_connection_can_select_1():
+def test_get_connection():
   
     conn = get_connection()
     try:
@@ -28,7 +28,7 @@ def test_get_connection_can_select_1():
         conn.close()
 
 
-def test_get_create_dt_and_by_returns_row_for_known_batch():
+def test_get_create_dt_and_by():
   
     row = get_create_dt_and_by(BATCH_ID)
 
@@ -37,7 +37,7 @@ def test_get_create_dt_and_by_returns_row_for_known_batch():
     assert "create_by" in row
 
 
-def test_get_analyses_for_batch_returns_list():
+def test_get_analyses_for_batch():
    
     analyses = get_analyses_for_batch(BATCH_ID)
 
@@ -49,7 +49,7 @@ def test_get_analyses_for_batch_returns_list():
         assert "status" in first
 
 
-def test_get_qcbatch_info_returns_expected_keys():
+def test_get_qcbatch_info():
     """
     Integrationstest: henter vi info-rækken for et batch med de forventede felter?
     """
