@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 
-BASE_APP_URL = "http://localhost:8501"
+BASE_APP_URL = "https://qrcodegeneratorbyburon.streamlit.app/"
 
 
 def build_qr_url(batch_id: str) -> str:
